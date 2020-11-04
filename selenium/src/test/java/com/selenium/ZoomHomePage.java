@@ -7,7 +7,7 @@ public class ZoomHomePage {
 
 	public static void main(String[] args) {
 		 
-		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
 		 
 		// Initialize browser
 		WebDriver driver=new ChromeDriver();

@@ -8,7 +8,7 @@ import org.openqa.selenium.Alert;
 public class AlertHandling {
 	
 	public static void main(String[] args) throws NoAlertPresentException,InterruptedException  {									
-		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
 		
 		WebDriver driver = new ChromeDriver();
 		
