@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class IRCTCWebtableDemo {
+public class IRCTCWebtableDemo extends SetupBrowser {
 
 	public static WebDriver driver;
 	
@@ -19,12 +19,8 @@ public class IRCTCWebtableDemo {
 	
 	public static void main(String[] args) throws InterruptedException {
 		String baseUrl = "https://www.irctc.co.in/";
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
 
-		driver = new ChromeDriver();
-
-		// Maximize browser
-		driver.manage().window().maximize();
+		WebDriver driver = browserSetUP();
 
 		driver.get(baseUrl);
 		

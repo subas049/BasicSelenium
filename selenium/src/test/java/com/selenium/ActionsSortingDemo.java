@@ -12,18 +12,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
-public class ActionsSortingDemo {
+public class ActionsSortingDemo extends SetupBrowser {
 
 	public static void main(String[] args) throws InterruptedException {
 		
 		//https://www.vinsguru.com/selenium-webdriver-automating-custom-controls-jquery-sortable-elements/
 		String baseUrl = "https://jqueryui.com/sortable/";
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-
-		// Maximize browser
-		driver.manage().window().maximize();
+		WebDriver driver = browserSetUP();
 
 		driver.get(baseUrl);
 		

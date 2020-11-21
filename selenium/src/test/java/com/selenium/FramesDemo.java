@@ -8,16 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class FramesDemo {
+public class FramesDemo extends SetupBrowser {
 
 	public static void main(String[] args) throws InterruptedException {
 		String baseUrl = "https://jqueryui.com/sortable/";
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-
-		// Maximize browser
-		driver.manage().window().maximize();
+		WebDriver driver = browserSetUP();
 
 		driver.get(baseUrl);
 		

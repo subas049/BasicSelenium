@@ -9,19 +9,12 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TakeScreenshotDemo {
+public class TakeScreenshotDemo extends SetupBrowser {
 
 	public static void main(String[] args) throws IOException {
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		// Initialize browser
-		WebDriver driver = new ChromeDriver();
-
+		WebDriver driver = browserSetUP();
 		// Open URL
 		driver.get("https://www.guru99.com/take-screenshot-selenium-webdriver.html");
-
-		// Maximize browser
-		driver.manage().window().maximize();
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 

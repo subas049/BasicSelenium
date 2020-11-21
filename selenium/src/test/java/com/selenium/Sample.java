@@ -7,22 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class sample {
+public class Sample extends SetupBrowser {
 
 	public static void main(String[] args) {
 		 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-		 
-		// Initialize browser
-		WebDriver driver=new ChromeDriver();
-		 
+		WebDriver driver = browserSetUP();
+		
 		// Open URL
 		driver.get(" https://www.ebay.com/");
 		 
-		// Maximize browser		 
-		driver.manage().window().maximize();
-		
-		
 		WebElement month_dropdown=driver.findElement(By.id("gh-cat"));
 		 
 		 Select month=new Select(month_dropdown);

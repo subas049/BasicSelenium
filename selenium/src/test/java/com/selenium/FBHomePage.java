@@ -3,21 +3,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class FBHomePage {
+public class FBHomePage extends SetupBrowser {
 
 	public static void main(String[] args) {
 		 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-		 
-		// Initialize browser
-		WebDriver driver=new ChromeDriver();
+		WebDriver driver = browserSetUP();
 		 
 		// Open facebook
 		driver.get("http://www.facebook.com");
 		 
-		// Maximize browser		 
-		driver.manage().window().maximize();
-		
 		driver.findElement(By.name("email")).sendKeys("8608201848");
 		driver.findElement(By.name("pass")).sendKeys("4855arul4855");
 		//driver.findElement(By.name("login")).click();

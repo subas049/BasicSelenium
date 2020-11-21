@@ -7,17 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class YahooCountryCodeDropDwn {
+public class YahooCountryCodeDropDwn extends SetupBrowser {
 
 	public static void main(String[] args) {
 		 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-		 
-		// Initialize browser
-		WebDriver driver=new ChromeDriver();
-		
-		// Maximize browser		 
-		driver.manage().window().maximize(); 
+		WebDriver driver = browserSetUP();
 		
 		// Open URL
 		driver.get("https://login.yahoo.com/");

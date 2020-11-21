@@ -5,16 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class AlertHandlingDemo {
+public class AlertHandlingDemo extends SetupBrowser {
 
 	public static void main(String[] args) throws InterruptedException {
 		String baseUrl = "http://demo.guru99.com/test/delete_customer.php";
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-
-		// Maximize browser
-		driver.manage().window().maximize();
+		WebDriver driver = browserSetUP();
 
 		driver.get(baseUrl);
 

@@ -8,17 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.Action;
 
-public class ActionsDemo {
+public class ActionsDemo extends SetupBrowser {
 
 	public static void main(String[] args) {
 		String baseUrl = "http://www.facebook.com/";
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-
-		// Maximize browser
-		driver.manage().window().maximize();
-
+		WebDriver driver = browserSetUP();
 		driver.get(baseUrl);
 		WebElement txtUsername = driver.findElement(By.id("email"));
 

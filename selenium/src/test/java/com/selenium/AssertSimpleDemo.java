@@ -7,17 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class AssertSimpleDemo {
+public class AssertSimpleDemo extends SetupBrowser {
 
 	public static void main(String[] args) throws InterruptedException {
 		
 		String baseUrl = "https://www.gmail.com/";
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-
-		// Maximize browser
-		driver.manage().window().maximize();
+		
+		WebDriver driver = browserSetUP();
 
 		driver.get(baseUrl);
 		

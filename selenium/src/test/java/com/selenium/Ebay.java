@@ -8,20 +8,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Ebay {
+public class Ebay extends SetupBrowser {
 
 	public static void main(String[] args) {
 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		// Initialize browser
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = browserSetUP();
 
 		// Open URLtle
 		driver.get(" https://www.ebay.com/");
-
-		// Maximize browser
-		driver.manage().window().maximize();
 
 		WebElement categry_dropdown = driver.findElement(By.id("gh-cat"));
 

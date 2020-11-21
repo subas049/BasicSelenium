@@ -7,17 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AlertWithWaitDemo {
+public class AlertWithWaitDemo extends SetupBrowser {
 
 	public static void main(String[] args) {
 		
 		String baseUrl = "https://demoqa.com/alerts";
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-
-		// Maximize browser
-		driver.manage().window().maximize();
+		WebDriver driver = browserSetUP();
 
 		driver.get(baseUrl);
 		

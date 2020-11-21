@@ -2,21 +2,16 @@ package com.selenium;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LaunchBrowser {
+public class LaunchBrowser extends SetupBrowser {
 
 	public static void main(String[] args) {
 		 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
-		 
-		// Initialize browser
-		WebDriver driver=new ChromeDriver();
+		WebDriver driver = browserSetUP();
 		 
 		// Open facebook
 		driver.get("http://www.facebook.com");
 		 
-		// Maximize browser
-		 
-		driver.manage().window().maximize();
+	
 		driver.close();
 		 
 		}
