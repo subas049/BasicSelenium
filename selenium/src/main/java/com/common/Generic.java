@@ -200,7 +200,7 @@ public interface Generic {
 	 * @author Subash - Learning
 	 * @throws IOException 
 	 */
-	public long takeSnap() throws IOException;
+	public void takeSnap() throws IOException;
 		
 	/**
 	 * This method will close the active browser

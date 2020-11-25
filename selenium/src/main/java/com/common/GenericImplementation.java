@@ -93,10 +93,12 @@ public class GenericImplementation implements Generic {
 
 	public void verifyTextContainsByXpath(String xpath, String text) {
 		// TODO Auto-generated method stub
-		if(driver.findElement(By.xpath(xpath)).getText().contains(text));{
-		System.out.println("The Text is Matched");
+		if (driver.findElement(By.xpath(xpath)).getText().contains(text)) {
+			System.out.println("The Text is Matched");
+		} else {
+			System.out.println("The Text is not Matched");
 		}
-		System.out.println("The Text is not Matched");
+	
 	}
 
 	public void clickById(String id) throws Exception {
@@ -214,7 +216,7 @@ public class GenericImplementation implements Generic {
 				return driver.switchTo().alert().getText();
 	}
 
-	public long takeSnap() throws IOException  {
+	public void takeSnap() throws IOException  {
 		//
 		// TODO Auto-generated method stub		
 		
@@ -229,7 +231,6 @@ public class GenericImplementation implements Generic {
 		FileUtils.copyFile(srcf, PastTheSnapTo);
 		
 		
-		return 0;
 	}
 
 	public void closeBrowser() {
