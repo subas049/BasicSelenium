@@ -3,6 +3,8 @@
  */
 package com.common;
 
+import java.io.IOException;
+
 /**
  * @author subash
  * This interface has generic method declaration for this TestNG framework
@@ -196,8 +198,9 @@ public interface Generic {
 	/**
 	 * This method will take snapshot of the browser
 	 * @author Subash - Learning
+	 * @throws IOException 
 	 */
-	public long takeSnap();
+	public long takeSnap() throws IOException;
 		
 	/**
 	 * This method will close the active browser

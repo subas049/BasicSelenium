@@ -3,10 +3,20 @@
  */
 package com.common;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * @author subash
@@ -15,6 +25,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class GenericImplementation implements Generic {
 	
 	public static WebDriver driver;
+	public static int i=1;
 
 	public void invokeApp(String browser, String url) throws Exception {
 		
@@ -41,12 +52,15 @@ public class GenericImplementation implements Generic {
 
 	public void enterByName(String nameValue, String data) throws Exception {
 		// TODO Auto-generated method stub
+		driver.findElement(By.name(nameValue)).clear();
+		driver.findElement(By.name(nameValue)).sendKeys(data);
 		
 	}
 
 	public void enterByXpath(String xpathValue, String data) throws Exception {
 		// TODO Auto-generated method stub
-		
+		driver.findElement(By.xpath(xpathValue)).clear();
+		driver.findElement(By.xpath(xpathValue)).sendKeys(data);
 	}
 
 	public boolean verifyTitle(String title) {
@@ -71,46 +85,55 @@ public class GenericImplementation implements Generic {
 	public void verifyTextByXpath(String xpath, String text) {
 		// TODO Auto-generated method stub
 		
+		if(driver.findElement(By.xpath(xpath)).getText().equals(text)) {
+			System.out.println("The Text is Matched");
+		}
+		System.out.println("The Text is not Matched");
 	}
 
 	public void verifyTextContainsByXpath(String xpath, String text) {
 		// TODO Auto-generated method stub
-		
+		if(driver.findElement(By.xpath(xpath)).getText().contains(text));{
+		System.out.println("The Text is Matched");
+		}
+		System.out.println("The Text is not Matched");
 	}
 
 	public void clickById(String id) throws Exception {
 		// TODO Auto-generated method stub
-		
+		driver.findElement(By.id(id)).click();
 	}
 
 	public void clickByClassName(String classVal) throws Exception {
 		// TODO Auto-generated method stub
-		
+		driver.findElement(By.className(classVal)).click();
 	}
 
 	public void clickByName(String name) throws Exception {
 		// TODO Auto-generated method stub
-		
+		driver.findElement(By.name(name)).click();
 	}
 
 	public void clickByLink(String name) throws Exception {
 		// TODO Auto-generated method stub
-		
+		driver.findElement(By.linkText(name)).click();
+		takeSnap();
 	}
 
 	public void clickByLinkNoSnap(String name) throws Exception {
 		// TODO Auto-generated method stub
-		
+		//LinkNoSnap means?
 	}
 
 	public void clickByXpath(String xpathVal) throws Exception {
 		// TODO Auto-generated method stub
-		
+		driver.findElement(By.xpath(xpathVal)).click();
+		takeSnap();
 	}
 
 	public void clickByXpathNoSnap(String xpathVal) throws Exception {
 		// TODO Auto-generated method stub
-		
+		driver.findElement(By.xpath(xpathVal)).click();
 	}
 
 	public String getTextById(String idVal) {
@@ -122,57 +145,103 @@ public class GenericImplementation implements Generic {
 
 	public String getTextByXpath(String xpathVal) {
 		// TODO Auto-generated method stub
+		
+		driver.findElement(By.xpath(xpathVal)).getText();
+		
 		return null;
 	}
 
 	public void selectVisibileTextById(String id, String value) throws Exception {
 		// TODO Auto-generated method stub
 		
+		WebElement dropDwnValues =driver.findElement(By.id(id));
+		 
+		 Select chosingdropDwn=new Select(dropDwnValues);
+		 
+		 chosingdropDwn.selectByVisibleText(value);
+		
 	}
 
 	public void selectIndexById(String id, int value) throws Exception {
 		// TODO Auto-generated method stub
 		
+		WebElement dropDwnValues =driver.findElement(By.id(id));
+		 
+		 Select chosingdropDwn=new Select(dropDwnValues);
+		 
+		 chosingdropDwn.selectByIndex(value);
+		 
 	}
 
 	public void switchToParentWindow() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
+		
+		String parentWindow = driver.getWindowHandle();
+		driver.switchTo().window(parentWindow);
 		
 	}
 
 	public void switchToLastWindow() {
 		// TODO Auto-generated method stub
 		
+		Set<String> alOpenedWindow = driver.getWindowHandles();
+		
+		for (String eachwindow : alOpenedWindow) {
+			driver.switchTo().window(eachwindow);
+		}		
+		
 	}
 
 	public void acceptAlert() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 		
+		driver.switchTo().alert().accept();
 	}
 
 	public void dismissAlert() {
 		// TODO Auto-generated method stub
+			//Below 2 lines perform the dismissing the Alert
+			//Alert alertWindow = driver.switchTo().alert();
+			//alertWindow.dismiss();
 		
+		//Below 1 line perform the dismissing the Alert
+		driver.switchTo().alert().dismiss();;
 	}
 
 	public String getAlertText() {
 		// TODO Auto-generated method stub
-		return null;
+		
+				return driver.switchTo().alert().getText();
 	}
 
-	public long takeSnap() {
-		// TODO Auto-generated method stub
+	public long takeSnap() throws IOException  {
+		//
+		// TODO Auto-generated method stub		
+		
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		
+		File srcf = ts.getScreenshotAs(OutputType.FILE);
+
+		File PastTheSnapTo = new File("./Output/img_"+i+".jpg");
+		
+		i++;
+
+		FileUtils.copyFile(srcf, PastTheSnapTo);
+		
+		
 		return 0;
 	}
 
 	public void closeBrowser() {
 		// TODO Auto-generated method stub
-		
+		driver.close();
 	}
 
 	public void closeAllBrowsers() {
 		// TODO Auto-generated method stub
-		
+		driver.quit();
 	}
+
+
 
 }
