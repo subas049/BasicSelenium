@@ -4,13 +4,13 @@ import com.common.GenericImplementation;
 
 public class MyHome extends GenericImplementation {
 	
+	
+	public LeadsPage clickCRMBtn() throws Exception {
 		
-	public  MyHome clickCreateLead() throws Exception {
+		clickByClassName("decorativeSubmit");
+		return new LeadsPage();
+	}	
 		
-		clickByLink("Create Lead");
-		return new MyHome();
-	}
-
 	
 
 }

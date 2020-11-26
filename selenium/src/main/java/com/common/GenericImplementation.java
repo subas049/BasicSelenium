@@ -4,7 +4,10 @@
 package com.common;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
@@ -26,10 +29,33 @@ public class GenericImplementation implements Generic {
 	
 	public static WebDriver driver;
 	public static int i=1;
+	protected static Properties prop;
+	
+	static {
+		
+		prop = new Properties();
+		try {
+			
+			/*
+			 * File f = new File("./props/input.properties"); FileInputStream fis = new
+			 * FileInputStream(f); 
+			 * prop.load(fis);
+			 */
+			prop.load(new FileInputStream(new File("./props/input.properties")));
+			prop.load(new FileInputStream(new File("./props/webobject.properties")));
+			
+			} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	public void invokeApp(String browser, String url) throws Exception {
-		
-		if(browser.equalsIgnoreCase("chrome")){
+			if(browser.equalsIgnoreCase("chrome")){
 			System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
 			driver = new ChromeDriver();
 
@@ -286,8 +312,8 @@ public boolean isElementEnabledById(String idValue) {
 
 public boolean isElementEnabledByXpath(String idValue) {
 	
-	boolean bReturn = 	driver.findElement(By.xpath(idValue)).isEnabled();
-	if (bReturn == true) {
+	boolean bReturn = false	;
+	if (driver.findElement(By.xpath(idValue)).isEnabled()) {
 		System.out.println(bReturn+"Element is Enabled");
 	} else {
 		System.out.println(bReturn+"Element is not Enabled");

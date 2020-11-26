@@ -2,31 +2,37 @@ package com.pages;
 
 import com.common.GenericImplementation;
 
-public class LeadsTab extends GenericImplementation {
+public class LeadsPage extends GenericImplementation {
 	
+	
+	public  LeadsPage clickCreateLead() throws Exception {
 		
-	public  LeadsTab enterLeadCompanyNam() throws Exception {
+		clickByLink("Create Lead");
+		return this;
+	}
+		
+	public  LeadsPage enterLeadCompanyNam() throws Exception {
 		
 		enterById("createLeadForm_companyName", "BBM");
 		
 		return this;
 	}
 	
-	public  LeadsTab enterLeadFirstNam() throws Exception {
+	public  LeadsPage enterLeadFirstNam() throws Exception {
 		
 			enterById("createLeadForm_firstName", "FirstNam");
 			
 			return this;
 		}
 	
-	public  LeadsTab enterLeadLastNam() throws Exception {
+	public  LeadsPage enterLeadLastNam() throws Exception {
 		
 		enterById("createLeadForm_lastName", "LastNam");
 		
 		return this;
 	}
 	
-	public  LeadsTab enterLeadPinCod() throws Exception {
+	public  LeadsPage enterLeadPinCod() throws Exception {
 		
 		enterById("createLeadForm_generalPostalCodeExt", "10203");
 		
@@ -34,7 +40,7 @@ public class LeadsTab extends GenericImplementation {
 	}
 	
 	
-public  LeadsTab clickCreateLeadBtn() throws Exception {
+public  LeadsPage clickCreateLeadBtn() throws Exception {
 		
 		//clickById("ext-gen615"); //unable to handle it by id but there is no dup values, why?
 	clickByClassName("smallSubmit");
@@ -42,7 +48,7 @@ public  LeadsTab clickCreateLeadBtn() throws Exception {
 		return this;
 	}
 
-public  LeadsTab isComanyNameDisplayed() throws Exception {
+public  LeadsPage isComanyNameDisplayed() throws Exception {
 	
 	//clickById("ext-gen615"); //unable to handle it by id but there is no dup values, why?
 isElementDisplayedById("viewLead_companyName_sp");
@@ -58,7 +64,7 @@ isElementDisplayedById("viewLead_firstNameLocal_sp");
 	return this;
 }	*/
 
-public  LeadsTab isReasignBtnEnabled() throws Exception {
+public  LeadsPage isReasignBtnEnabled() throws Exception {
 	
 	//clickById("ext-gen615"); //unable to handle it by id but there is no dup values, why?
 //isElementDisplayedById("ext-gen605");

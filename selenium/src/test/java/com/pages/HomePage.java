@@ -9,7 +9,7 @@ public class HomePage extends GenericImplementation {
 		return this;
 	}
 	
-public MyHome clickCRMBtn() throws Exception {
+	public MyHome clickCRMBtn() throws Exception {
 	
 		clickByLink("CRM/SFA");
 		return new MyHome();
