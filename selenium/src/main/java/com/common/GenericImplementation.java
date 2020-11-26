@@ -100,6 +100,11 @@ public class GenericImplementation implements Generic {
 		}
 	
 	}
+	
+	public void elementDisplayedById(String id) throws Exception {
+		// TODO Auto-generated method stub
+		driver.findElement(By.id(id)).isDisplayed();
+	}
 
 	public void clickById(String id) throws Exception {
 		// TODO Auto-generated method stub
@@ -242,7 +247,54 @@ public class GenericImplementation implements Generic {
 		// TODO Auto-generated method stub
 		driver.quit();
 	}
+	
+	
+	public boolean isElementDisplayedById1(String idValue) {
+		boolean bReturn = false;
+		
+		if (driver.findElement(By.id(idValue)).isDisplayed()) {
+			bReturn = true;	
+			System.out.println("Element is Displayed:"+bReturn);
+		} 
+		System.out.println("Element is not Displayed:"+bReturn);
+		
+		return bReturn;		
+		
+	}
+	
+	public boolean isElementDisplayedById(String idValue) {
+		
+		boolean bReturn = 	driver.findElement(By.id(idValue)).isDisplayed();
+		if (bReturn == true) {
+			System.out.println(bReturn+" Element is Displayed");
+		} else {
+			System.out.println(bReturn+" Element is not Displayed");
+		}
+		return bReturn;
+	}
+	
+public boolean isElementEnabledById(String idValue) {
+		
+		boolean bReturn = 	driver.findElement(By.id(idValue)).isEnabled();
+		if (bReturn == true) {
+			System.out.println(bReturn+"Element is Enabled");
+		} else {
+			System.out.println(bReturn+"Element is not Enabled");
+		}
+		return bReturn;
+	}
 
-
+public boolean isElementEnabledByXpath(String idValue) {
+	
+	boolean bReturn = 	driver.findElement(By.xpath(idValue)).isEnabled();
+	if (bReturn == true) {
+		System.out.println(bReturn+"Element is Enabled");
+	} else {
+		System.out.println(bReturn+"Element is not Enabled");
+	}
+	return bReturn;
+}
+	
+	
 
 }

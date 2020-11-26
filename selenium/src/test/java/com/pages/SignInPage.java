@@ -25,5 +25,15 @@ public class SignInPage extends GenericImplementation {
 		return new HomePage();
 	}	
 	
+public HomePage clickCRMBtn() throws Exception {
+		
+		clickByClassName("decorativeSubmit");
+		return new HomePage();
+	}	
+	
+	
+	
+	
+	
 
 }

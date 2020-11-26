@@ -215,4 +215,21 @@ public interface Generic {
 	 */
 	public void closeAllBrowsers();
 	
+public boolean isElementDisplayedById(String idValue) throws Exception;
+	
+	/**
+	 * yet to add of it
+	 */	
+
+public boolean isElementEnabledById(String idValue) throws Exception;
+
+/**
+ * yet to add of it
+ */
+public boolean isElementEnabledByXpath(String idValue) throws Exception;
+
+/**
+ * yet to add of it
+ */
+
 }
