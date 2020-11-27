@@ -11,18 +11,12 @@ import com.pages.LeadCreatePage;
 import com.pages.MyHomPage;
 import com.pages.MyLeadPage;
 
-public class TC001_LogintoApplication {
+public class TC005_CreateLeadScreen {
 
 	@Test
 	public void loginAndLogout() throws Exception {		
 		
-		new SignInPage().launchApplication().enterUsername().enterPassWord().clickSubmit().verifyHomePage();
-		new HomePage().verifyHomePage().clickCRMBtn();
-		new MyHomPage().verifyMyHomPage().clickLeadsTab();
-		new MyLeadPage().verifyLeadPage().clickCreateLeadLink();
+		//new AppnMyLeadPage().verifyLeadPage().clickCreateLeadLink();
 		new LeadCreatePage().enterLeadCompanyNam().enterLeadFirstNam().enterLeadLastNam().enterLeadPinCod().clickCreateLeadBtn();
-		
-		
-		
 	}
 }
