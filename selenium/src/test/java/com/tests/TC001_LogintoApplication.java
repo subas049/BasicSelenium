@@ -1,27 +1,20 @@
 package com.tests;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
 
-//import com.pages.LeadsPage;
-import com.pages.SignInPage;
+import org.testng.annotations.Test;
 
+import com.common.ProjectGeneric;
 import com.pages.HomePage;
-import com.pages.LeadCreatePage;
-import com.pages.MyHomPage;
-import com.pages.MyLeadPage;
+//import com.pages.LeadsPage;
 
-public class TC001_LogintoApplication {
+
+
+public class TC001_LogintoApplication extends ProjectGeneric {
 
 	@Test
-	public void loginAndLogout() throws Exception {		
+	public void loginToApplication() throws Exception {		
 		
-		new SignInPage().launchApplication().enterUsername().enterPassWord().clickSubmit().verifyHomePage();
-		new HomePage().verifyHomePage().clickCRMBtn();
-		new MyHomPage().verifyMyHomPage().clickLeadsTab();
-		new MyLeadPage().verifyLeadPage().clickCreateLeadLink();
-		new LeadCreatePage().enterLeadCompanyNam().enterLeadFirstNam().enterLeadLastNam().enterLeadPinCod().clickCreateLeadBtn();
-		
+		new HomePage().verifyHomePage();
 		
 		
 	}

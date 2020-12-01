@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Set;
 
+
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

@@ -9,7 +9,7 @@ public class  MyHomPage extends GenericImplementation {
 	public static String leadsTabLocatrVal = prop.getProperty("leadsTab_ByLink");
 	
 
-	public MyHomPage verifyMyHomPage () {		
+	public MyHomPage verifyMyHomPage() {		
 		verifyTextById(myHompagLablLocatrVal, myHompagLablActVal);
 		return this;		
 		
