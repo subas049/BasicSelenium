@@ -20,7 +20,7 @@ public interface Generic {
 	 * @throws Exception 
 	 * 
 	 */
-	public void invokeApp(String browser, String url) throws Exception;
+	public void invokeApp() throws Exception;
 
 	/**
 	 * This method will enter the value to the text field using id attribute to locate

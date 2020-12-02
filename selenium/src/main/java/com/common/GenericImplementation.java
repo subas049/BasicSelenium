@@ -30,6 +30,8 @@ public class GenericImplementation implements Generic {
 	public static WebDriver driver;
 	public static int i=1;
 	protected static Properties prop;
+	public static String browser;
+	public static String url;
 	
 	static {
 		
@@ -54,19 +56,19 @@ public class GenericImplementation implements Generic {
 		
 	}
 
-	public void invokeApp(String browser, String url) throws Exception {
-			if(browser.equalsIgnoreCase("chrome")){
+	public void invokeApp() throws Exception {
+			if(prop.getProperty("browser").equalsIgnoreCase("chrome")){
 			System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
 			driver = new ChromeDriver();
 
-		}else if (browser.equalsIgnoreCase("firefox")) {
+		}else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "./drivers/firefox/geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
 		
 		// Maximize browser
 		driver.manage().window().maximize();
-		driver.get(url);
+		driver.get(prop.getProperty("url"));
 		
 	}
 
@@ -320,7 +322,7 @@ public boolean isElementEnabledByXpath(String idValue) {
 	}
 	return bReturn;
 }
-	
-	
+
+
 
 }

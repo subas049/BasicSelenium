@@ -13,10 +13,6 @@ public class SignInPage extends GenericImplementation {
 	public static String passwordLocator = prop.getProperty("passWordTextBox_ID");
 	public static String submitbtnLocator = prop.getProperty("submitButton_Classname");
 	
-	public SignInPage launchApplication () throws Exception {
-		invokeApp(browser, url);
-		return this;
-	}
 	
 	public SignInPage enterUsername () throws Exception {
 		enterById(usernamelocator, userName);
