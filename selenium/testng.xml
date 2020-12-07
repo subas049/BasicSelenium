@@ -5,16 +5,9 @@
     <classes>
 <!--     <class name="com.tests.TC004_VerifyCreateLead"/> -->
 <!--       <class name="com.tests.TC003_VerifyLeadsPage"/>       -->
-<class name="com.tests.TC002_VerifyMyHomePageNavigaion"/> 
+<!-- <class name="com.tests.TC002_VerifyMyHomePageNavigaion"/>  -->
       <class name="com.tests.TC001_LogintoApplication"/>
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="Test1">
-    <classes>
-<!--     <class name="com.tests.TC004_VerifyCreateLead"/> -->
-<!--       <class name="com.tests.TC003_VerifyLeadsPage"/>       -->
-    <class name="com.tests.TC002_VerifyMyHomePageNavigaion"/> 
-<!--       <class name="com.tests.TC001_LogintoApplication"/> -->
-    </classes>
-  </test> <!-- Test -->
+   <!-- Test -->
 </suite> <!-- Suite -->
