@@ -13,7 +13,7 @@ public class TC004_VerifyCreateLead extends ProjectGeneric {
 	@Test
 	public void loginAndLogout() throws Exception {		
 		
-		new SignInPage().enterUsername().enterPassWord().clickSubmit().verifyHomePage()
+		new SignInPage(driver).enterUsername().enterPassWord().clickSubmit().verifyHomePage()
 		.clickCRMBtn().verifyMyHomPage().clickLeadsTab().verifyLeadPage().clickCreateLeadLink().enterLeadCompanyNam().enterLeadFirstNam()
 		.enterLeadLastNam().enterLeadPinCod().clickCreateLeadBtn().verifyLeadCreation();
 	}

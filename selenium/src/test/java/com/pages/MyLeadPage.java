@@ -1,8 +1,13 @@
 package com.pages;
 
-import com.common.GenericImplementation;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class MyLeadPage extends GenericImplementation {
+
+import com.common.ProjectGeneric;
+
+public class MyLeadPage extends ProjectGeneric {
+	
 
 	public static String leadspagLablActVal = prop.getProperty("leadsPagActVal");
 	public static String leadspagLablLocatrVal = prop.getProperty("leadspag_ById");
@@ -24,6 +29,13 @@ public class MyLeadPage extends GenericImplementation {
 	public static String pinCodTxtFdLocById = prop.getProperty("pinCodTxtFdLocById");
 
 	public static String creatLeadBtnLocByClasNam = prop.getProperty("creatLeadBtnLocByClasNam");
+	
+	//public RemoteWebDriver driver;
+	
+public MyLeadPage(RemoteWebDriver driver) {
+		
+		this.driver=driver;
+	}
 
 	public MyLeadPage verifyLeadPage() {
 		verifyTextById(leadspagLablLocatrVal, leadspagLablActVal);

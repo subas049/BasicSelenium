@@ -14,7 +14,7 @@ public class TC003_VerifyLeadsPage extends ProjectGeneric {
 	@Test
 	public void verifyLeadsPage() throws Exception {
 		
-		new SignInPage().enterUsername().enterPassWord().clickSubmit().verifyHomePage()
+		new SignInPage(driver).enterUsername().enterPassWord().clickSubmit().verifyHomePage()
 		.clickCRMBtn().verifyMyHomPage().clickLeadsTab().verifyLeadPage();
 	}
 }

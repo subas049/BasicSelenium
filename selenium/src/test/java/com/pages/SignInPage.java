@@ -1,21 +1,32 @@
 package com.pages;
 
 
-import com.common.GenericImplementation;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class SignInPage extends GenericImplementation {
+
+import com.common.ProjectGeneric;
+
+public class SignInPage extends ProjectGeneric {
 	
-	public static String browser = prop.getProperty("browser");
-	public static String url = prop.getProperty("url");
+	
+
 	public static String userName = prop.getProperty("userId");
 	public static String passWord = prop.getProperty("passWord");
 	public static String usernamelocator = prop.getProperty("userNameTextBox_ID");
 	public static String passwordLocator = prop.getProperty("passWordTextBox_ID");
 	public static String submitbtnLocator = prop.getProperty("submitButton_Classname");
 	
+	//public RemoteWebDriver driver;
+	
+	public SignInPage(RemoteWebDriver driver) {
+		this.driver=driver;
+	}
 	
 	public SignInPage enterUsername () throws Exception {
+	
 		enterById(usernamelocator, userName);
+		
 		return this;
 	}
 	
@@ -27,16 +38,9 @@ public class SignInPage extends GenericImplementation {
 	public HomePage clickSubmit() throws Exception {
 		
 		clickByClassName(submitbtnLocator);
-		return new HomePage();
+		return new HomePage(driver);
 	}	
 	
-
-	
-	
-	
-	
-	
-
 }
 
 

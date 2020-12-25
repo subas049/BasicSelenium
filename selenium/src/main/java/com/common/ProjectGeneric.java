@@ -6,12 +6,6 @@ import org.testng.annotations.*;
 public class ProjectGeneric extends GenericImplementation {
 	
 	
-	public static String userName = prop.getProperty("userId");
-	public static String passWord = prop.getProperty("passWord");
-	public static String usernamelocator = prop.getProperty("userNameTextBox_ID");
-	public static String passwordLocator = prop.getProperty("passWordTextBox_ID");
-	public static String submitbtnLocator = prop.getProperty("submitButton_Classname");
-	
 	@BeforeMethod
 	public void beforeMethod() throws Exception {
 		invokeApp();
@@ -27,7 +21,6 @@ public class ProjectGeneric extends GenericImplementation {
 	}
 	@BeforeSuite
 	public void beforeSuite() throws Exception {
-		
 		System.out.println("Im from before suite");
 	}
 	

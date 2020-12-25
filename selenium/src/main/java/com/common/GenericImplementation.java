@@ -19,7 +19,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
+
 
 /**
  * @author subash
@@ -27,14 +29,11 @@ import org.openqa.selenium.support.ui.Select;
  */
 public class GenericImplementation implements Generic {
 	
-	public static WebDriver driver;
-	public static int i=1;
+	public RemoteWebDriver driver;
+	public int i=1;
 	protected static Properties prop;
-	public static String browser;
-	public static String url;
 	
-	static {
-		
+	public GenericImplementation() {
 		prop = new Properties();
 		try {
 			
@@ -53,13 +52,19 @@ public class GenericImplementation implements Generic {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	}
-
+		}
+	
+		/*
+		 * public GenericImplementation(RemoteWebDriver driver ) {
+		 * System.out.println("im from OPC"); this.driver = driver; }
+		 */
+	
+	
 	public void invokeApp() throws Exception {
 			if(prop.getProperty("browser").equalsIgnoreCase("chrome")){
 			System.setProperty("webdriver.chrome.driver", "./drivers/chrome/chromedriver.exe");
 			driver = new ChromeDriver();
+			System.out.println("the driver session from generic  is "+driver.getSessionId());
 
 		}else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "./drivers/firefox/geckodriver.exe");

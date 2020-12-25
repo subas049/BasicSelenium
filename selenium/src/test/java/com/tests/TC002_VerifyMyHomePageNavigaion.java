@@ -14,7 +14,9 @@ public class TC002_VerifyMyHomePageNavigaion extends ProjectGeneric {
 	@Test
 	public void verifyCRMButton() throws Exception {
 		
-		new SignInPage().enterUsername().enterPassWord().clickSubmit().verifyHomePage().clickCRMBtn().verifyMyHomPage();
+		System.out.println("the driver seaation is "+driver.getSessionId());
+
+		new SignInPage(driver).enterUsername().enterPassWord().clickSubmit().verifyHomePage().clickCRMBtn().verifyMyHomPage();
 		
 	}
 }
