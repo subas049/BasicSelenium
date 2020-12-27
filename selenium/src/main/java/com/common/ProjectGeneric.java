@@ -2,6 +2,8 @@ package com.common;
 
 import org.testng.annotations.*;
 
+import com.utils.ReadExcel;
+
 
 public class ProjectGeneric extends GenericImplementation {
 	
@@ -56,4 +58,10 @@ public class ProjectGeneric extends GenericImplementation {
 		
 		System.out.println("Im from after Test");
 	}
+	
+	@DataProvider(name="fetchData")
+	public  Object[][] getData(){
+		return ReadExcel.getSheet("DataSheet");		
+	}	
+
 }

@@ -10,10 +10,10 @@ import com.pages.SignInPage;
 
 public class TC004_VerifyCreateLead extends ProjectGeneric {
 
-	@Test
-	public void loginAndLogout() throws Exception {		
+	@Test(dataProvider="fetchData")
+	public void loginAndLogout(String userName, String passWord) throws Exception {		
 		
-		new SignInPage(driver).enterUsername().enterPassWord().clickSubmit().verifyHomePage()
+		new SignInPage(driver).enterUsername(userName).enterPassWord(passWord).clickSubmit().verifyHomePage()
 		.clickCRMBtn().verifyMyHomPage().clickLeadsTab().verifyLeadPage().clickCreateLeadLink().enterLeadCompanyNam().enterLeadFirstNam()
 		.enterLeadLastNam().enterLeadPinCod().clickCreateLeadBtn().verifyLeadCreation();
 	}

@@ -11,10 +11,10 @@ import com.pages.SignInPage;
 
 public class TC003_VerifyLeadsPage extends ProjectGeneric {
 
-	@Test
-	public void verifyLeadsPage() throws Exception {
+	@Test(dataProvider="fetchData")
+	public void verifyLeadsPage(String userName, String passWord) throws Exception {
 		
-		new SignInPage(driver).enterUsername().enterPassWord().clickSubmit().verifyHomePage()
+		new SignInPage(driver).enterUsername(userName).enterPassWord(passWord).clickSubmit().verifyHomePage()
 		.clickCRMBtn().verifyMyHomPage().clickLeadsTab().verifyLeadPage();
 	}
 }
